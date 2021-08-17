@@ -37,30 +37,30 @@
 	<main class="container px-6 sm:max-w-5xl mx-auto pt-20 pb-24">
 		<div class="relative flex flex-col items-start sm:items-center">
 			<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80" class="h-36 sm:h-64 w-full rounded-md object-cover">
-			<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80" class="h-20 w-20 sm:h-36 sm:w-36 object-cover object-center rounded-md -mt-12 sm:-mt-16 ml-4 sm:ml-0">
+			<img src="." id="picture" class="h-20 w-20 sm:h-36 sm:w-36 object-cover object-center rounded-md -mt-12 sm:-mt-16 ml-4 sm:ml-0">
 		</div>
-		<h1 class="greeting absolute text-xl sm:text-2xl font-medium ml-28 sm:ml-0">Hellō Adam!</h1>
+		<h1 class="greeting absolute text-xl sm:text-2xl font-medium ml-28 sm:ml-0">Hellō <span id="preferred-name">Adam</span>!</h1>
 
 		<div class="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-8 mt-16 md:mt-20">
 			<div class="w-full md:w-3/5 bg-white p-4 rounded-md shadow-medium text-lg font-medium">
 				<div class="space-y-4">
 					<div>
 						<h3 class="opacity-60">Full Name</h3>
-						<h2 class="opacity-80">Adam Brian Jones III</h2>
+						<h2 class="opacity-80" id="full-name"></h2>
 					</div>
 
 					<div>
 						<h3 class="opacity-60">Email</h3>
-						<h2 class="opacity-80">adam@example.com</h2>
+						<h2 class="opacity-80" id="email"></h2>
 					</div>
 
 					<div>
 						<h3 class="opacity-60">Phone</h3>
-						<h2 class="opacity-80">+91907482738</h2>
+						<h2 class="opacity-80" id="phone"></h2>
 					</div>
 				</div>
 
-				<a href="" class="mt-16 text-center block sm:inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
+				<a href="" id="update-profile" class="mt-16 text-center block sm:inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
 			</div>
 
 			<div class="grid grid-cols-2 gap-5 p-4 w-full md:w-2/5 bg-white rounded-md shadow-medium font-medium">
@@ -84,4 +84,46 @@
 		</div>
 	</main>
 </body>
+<script>
+	const id_token = window.location.hash.split("=")[1];
+	let data;
+
+	async function getInfo() {
+		data = await fetch(
+			"https://localhost.hello.coop/OIDC/introspect",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: `id_token=${id_token}&none=098765432123456789&client_id=01234567-0123-0123-0123-0123456789ab"`,
+			}
+		)
+		.then((r) => r.json())
+		.then((data) => {
+			return data;
+		})
+		.catch((err)=>{
+			alert("Something went wrong");
+		})
+
+		hydate();
+	}
+
+	function hydate(){
+		const { name, picture, email, phone = "" } = data;
+
+		document.getElementById("full-name").innerText = name;
+		document.getElementById("preferred-name").innerText = name;
+		document.getElementById("email").innerText = email;
+		document.getElementById("picture").src = picture;
+		document.getElementById("phone").src = phone;
+	}
+
+	window.onload = async () => {
+		getInfo();
+	}
+
+	document.getElementById("update-profile").href = `https://localhost.hello.coop/OIDC/authorize?client_id=01234567-0123-0123-0123-0123456789ac&redirect_uri=${window.location.origin}${window.location.pathname}&nonce=098765432123456789&response_mode=fragment&scopes=openid+profile+email+phone`;
+</script>
 </html>
