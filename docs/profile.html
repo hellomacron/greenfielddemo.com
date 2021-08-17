@@ -3,18 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<title>Greenfield Fitness</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 	<style>
 		.shadow-medium{
 			box-shadow:  0 8px 30px rgba(0,0,0,0.08);
 		}
+		.greeting{
+			margin-top: -50px;
+		}
+		@media only screen and (max-width: 640px) {
+			.greeting{
+				margin-top: -24px;
+			}
+		}
 	</style>
 </head>
 
-<body style="background: #f9fbfd" class="pb-20">
-	<header class="h-14 bg-white shadow-medium">
-		<div class="h-full flex items-center justify-between container max-w-5xl mx-auto">
+<body style="background: #f9fbfd">
+	<header class="h-14 bg-white shadow-medium fixed w-full z-50">
+		<div class="h-full flex items-center justify-between container px-6 sm:max-w-5xl mx-auto">
 			<div class="flex items-center justify-center">
 				<img src="assets/logo.svg" alt="greenfield fitness" class="h-9">
 				<span class="text-xl ml-2 font-medium">Greenfield Fitness</span>
@@ -24,15 +33,15 @@
 		</div>
 	</header>
 
-	<main class="container max-w-5xl mx-auto">
-		<div class="relative flex flex-col items-center">
-			<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80" class="h-64 w-full rounded-md object-cover mt-8">
-			<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80" class="h-36 w-36 object-cover object-center rounded-md -mt-16">
+	<main class="container px-6 sm:max-w-5xl mx-auto pt-20 pb-24">
+		<div class="relative flex flex-col items-start sm:items-center">
+			<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80" class="h-36 sm:h-64 w-full rounded-md object-cover">
+			<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80" class="h-20 w-20 sm:h-36 sm:w-36 object-cover object-center rounded-md -mt-12 sm:-mt-16 ml-4 sm:ml-0">
 		</div>
-		<h1 class="absolute text-2xl font-medium" style="margin-top: -50px;">Hellō Adam!</h1>
+		<h1 class="greeting absolute text-xl sm:text-2xl font-medium ml-28 sm:ml-0">Hellō Adam!</h1>
 
-		<div class="flex space-x-8 mt-20">
-			<div class="w-3/5 bg-white p-4 rounded-md shadow-medium text-lg font-medium">
+		<div class="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-8 mt-16 md:mt-20">
+			<div class="w-full md:w-3/5 bg-white p-4 rounded-md shadow-medium text-lg font-medium">
 				<div class="space-y-4">
 					<div>
 						<h3 class="opacity-60">Full Name</h3>
@@ -50,10 +59,10 @@
 					</div>
 				</div>
 
-				<a href="" class="mt-16 inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
+				<a href="" class="mt-16 text-center block sm:inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
 			</div>
 
-			<div class="grid grid-cols-2 gap-5 p-4 w-2/5 bg-white rounded-md shadow-medium font-medium">
+			<div class="grid grid-cols-2 gap-5 p-4 w-full md:w-2/5 bg-white rounded-md shadow-medium font-medium">
 				<div class="bg-black rounded-md p-4" style="background: #FCEAD2; color: #F49413;">
 					<span class="block text-3xl">0mi</span>
 					<span>distance covered</span>
