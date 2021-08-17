@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Greenfield Fitness</title>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+	<style>
+		.shadow-medium{
+			box-shadow:  0 8px 30px rgba(0,0,0,0.08);
+		}
+	</style>
+</head>
+
+<body style="background: #f9fbfd" class="pb-20">
+	<header class="h-14 bg-white shadow-medium">
+		<div class="h-full flex items-center justify-between container max-w-5xl mx-auto">
+			<div class="flex items-center justify-center">
+				<img src="assets/logo.svg" alt="greenfield fitness" class="h-9">
+				<span class="text-xl ml-2 font-medium">Greenfield Fitness</span>
+			</div>
+
+			<a href="" class="uppercase text-sm font-semibold">Signout</a>	
+		</div>
+	</header>
+
+	<main class="container max-w-5xl mx-auto">
+		<div class="relative flex flex-col items-center">
+			<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80" class="h-64 w-full rounded-md object-cover mt-8">
+			<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80" class="h-36 w-36 object-cover object-center rounded-md -mt-16">
+		</div>
+		<h1 class="absolute text-2xl font-medium" style="margin-top: -50px;">Hellō Adam!</h1>
+
+		<div class="flex space-x-8 mt-20">
+			<div class="w-3/5 bg-white p-4 rounded-md shadow-medium text-lg font-medium">
+				<div class="space-y-4">
+					<div>
+						<h3 class="opacity-60">Full Name</h3>
+						<h2 class="opacity-80">Adam Brian Jones III</h2>
+					</div>
+
+					<div>
+						<h3 class="opacity-60">Email</h3>
+						<h2 class="opacity-80">adam@example.com</h2>
+					</div>
+
+					<div>
+						<h3 class="opacity-60">Phone</h3>
+						<h2 class="opacity-80">+91907482738</h2>
+					</div>
+				</div>
+
+				<a href="" class="mt-16 inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
+			</div>
+
+			<div class="grid grid-cols-2 gap-5 p-4 w-2/5 bg-white rounded-md shadow-medium font-medium">
+				<div class="bg-black rounded-md p-4" style="background: #FCEAD2; color: #F49413;">
+					<span class="block text-3xl">0mi</span>
+					<span>distance covered</span>
+				</div>
+				<div class="bg-black rounded-md p-4" style="background: #FAEBE4; color: #FF7D41;">
+					<span class="block text-3xl">0mi</span>
+					<span>steps</span>
+				</div>
+				<div class="bg-black rounded-md p-4" style="background: #ECEEF5; color:  #87A1FB;">
+					<span class="block text-3xl">0mi</span>
+					<span>calories burned</span>
+				</div>
+				<div class="bg-black rounded-md p-4" style="background: #F5ECEC; color: #FF7474;">
+					<span class="block text-3xl">0mi</span>
+					<span>exercised</span>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
