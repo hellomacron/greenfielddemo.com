@@ -116,10 +116,10 @@
 	}
 
 	function hydate(){
-		const { name, picture, email, phone = "" } = data;
+		const { name, nickname, picture, email, phone = "" } = data;
 
 		document.getElementById("full-name").innerText = name;
-		document.getElementById("preferred-name").innerText = name;
+		document.getElementById("preferred-name").innerText = nickname;
 		document.getElementById("email").innerText = email;
 		document.getElementById("picture").src = picture;
 		document.getElementById("phone").innerText = phone;
