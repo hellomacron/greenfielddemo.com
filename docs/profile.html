@@ -53,11 +53,11 @@
 						<h3 class="opacity-60">Email</h3>
 						<h2 class="opacity-80" id="email"></h2>
 					</div>
-
-					<div>
+					
+					<!-- <div>
 						<h3 class="opacity-60">Phone</h3>
 						<h2 class="opacity-80" id="phone"></h2>
-					</div>
+					</div> -->
 				</div>
 
 				<a href="" id="update-profile" class="mt-16 text-center block sm:inline-block py-2 px-6 rounded-md" style="border: 1px solid #303030; color: #303030">ō Update Profile with Hellō</a>
@@ -116,13 +116,13 @@
 	}
 
 	function hydate(){
-		const { name, nickname, picture, email, phone = "" } = data;
+		const { name, nickname, picture, email, phone} = data;
 
 		document.getElementById("full-name").innerText = name;
 		document.getElementById("preferred-name").innerText = nickname;
 		document.getElementById("email").innerText = email;
 		document.getElementById("picture").src = picture;
-		document.getElementById("phone").innerText = phone;
+		// document.getElementById("phone").innerText = phone;
 	}
 
 	window.onload = async () => {
